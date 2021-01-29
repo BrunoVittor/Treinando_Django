@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Pilots list</title>
+</head>
+<body>
+<h1>Pilots List in Championship</h1>
+    {% for pilot in pilots %}
+        <a href="{% url 'pilots_update' pilot.id %}"><p>Pilot name: {{ pilot.name }}</p></a>
+        <p>Pilot age: {{ pilot.age }}</p>
+        <p>Pilot team: {{ pilot.team }}</p>
+        <p>Pilot points: {{ pilot.points }}</p>
+        <p>Pilot bio: {{ pilot.bio }}</p>
+        <a href="{% url 'pilots_delete' pilot.id %}"><button type="submit">Delete</button></a>
+<br>
+    {% endfor %}
+    <br>
+<a href="{% url 'pilots_new' %}"><button type="submit">Create new Pilot</button></a>
+</body>
+</html>
